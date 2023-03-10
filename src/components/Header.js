@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { isLogin } from '../actions';
 
 const HeaderDiv = styled.div`
   @font-face {
@@ -8,18 +11,26 @@ const HeaderDiv = styled.div`
     font-weight: normal;
     font-style: normal;
   }
-  
-  position: fixed; 
+  position: relative;
+  height: 130px;
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: white;
-  border-bottom: 1px solid rgb(230, 230, 230);
-  z-index: 1;
+
+  & .mainHeaderBG{
+    position: fixed; 
+    height: 130px;
+    width: 100vw;
+    background-color: white;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    z-index: 2;
+  }
 
   & .mainHeader{
+    position: fixed; 
     height: 130px;
     width: 1200px;
+    z-index: 2;
   
     display: flex;
     flex-direction: column;
@@ -41,8 +52,6 @@ const HeaderDiv = styled.div`
   }
 
   & .midNav{
-    border: 1px solid red ;
-
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -54,6 +63,7 @@ const HeaderDiv = styled.div`
       font-style: italic;
       letter-spacing: 1px;
       cursor: pointer;
+      color: black;
     }
 
     & .rightNav > span{
@@ -67,9 +77,19 @@ const HeaderDiv = styled.div`
       font-weight: bold;
     }
 
+    & img {
+      width: 15px;
+      height: 15px;
+      margin-left: 45px;
+
+    }
   }
 
   & .bottomNav {
+
+    & .Link {
+      color: black;
+    }
 
     & span {
       display: inline-block;
@@ -103,46 +123,69 @@ const HeaderDiv = styled.div`
 
 function Header() {
 
+  // 전역 상태 관리 state
+  const state = useSelector(state => state.itemReducer);
+  const dispatch = useDispatch()
+
+
+  // 페이지 관리 state - 한무스크롤, 페이지네이션
   const [ page, changePage] = useState(1);
 
-  const bottomSpan= ['추천','남성','여성','브랜드','기획전']
+  // 페이지 관리 링크 배열
+  const bottomSpan= [<Link className='Link' to='/'>추천</Link>,<Link className='Link' to='/ManPage'>남성</Link>,'여성','브랜드','기획전']
 
+  // 페이지 변경 함수
+  const controlPage = (e) =>{
+    changePage(e)
+  }
+
+  // 로그인, 로그아웃 페이지 관리 함수
+  const login = () =>{
+    if(state.login.isLogin){
+      return <span onClick={()=>dispatch(isLogin())}>로그아웃</span>
+    } else {
+      return <Link to='/Login'>
+        <span>로그인</span>
+    </Link>
+    }
+  }
 
   return(
     <HeaderDiv page={page}>
+      <div className='mainHeaderBG'></div>
       <div className='mainHeader'>
         <div className='topNav'>
           <div>
             <span>고객센터</span>
             <span>관심상품</span>
-            <span>로그인</span>
+            {login()}
           </div>
         </div>
 
         <div className='midNav'>
-
           <div className='leftNav'>
-            <span className='title'>KREAM</span>
+            <Link to='/'>
+              <span className='title'>KREAM</span>
+            </Link>
           </div>
-
           <div className='rightNav'>
             <span>HOME</span>
             <span>STYLE</span>
             <span>SHOP</span>
             <span>MY</span>
-            <span>Q</span>
+            <img src='../images/kategories/search.png'></img>
           </div>
-
         </div>
 
         <div className='bottomNav'>
           <div>
             {bottomSpan.map((el, idx) => {
-              return <span key={idx} onClick={()=>{changePage(idx+1)}}>{el}</span>
+              return <span key={idx} onClick={()=>{controlPage(idx+1)}}>{el}</span>
             })}
             <div className='underLine'></div>
           </div>
         </div>
+        
       </div>
     </HeaderDiv>
   )

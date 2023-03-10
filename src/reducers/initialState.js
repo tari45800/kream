@@ -1,5 +1,8 @@
 export const initialState =
 {
+  'login': {
+    'isLogin': false
+  },
   "items": [
     {
       "id": 1,
@@ -72,7 +75,7 @@ export const initialState =
       "img": "../images/items/3.jpg",
     },
     {
-      "id": 112,
+      "id": 11,
       "brand": "Nike",
       "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
       "price": '1,940,000원',

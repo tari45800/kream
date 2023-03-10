@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Banner from '../components/Banner';
 import Kategorie from '../components/kategorie';
-import List from '../components/List';
+import ManList from '../components/ManList';
 import Footer from '../components/Footer';
 
 
@@ -13,15 +12,14 @@ const MainDiv = styled.div`
   flex-direction: column;
   background-color: #fff
 `
-function Main() {
+function ManPage() {
   return(
     <MainDiv>
-      <Banner></Banner>
       <Kategorie></Kategorie>
-      <List></List>
+      <ManList></ManList>
       <Footer></Footer>
     </MainDiv>
   )
 }
 
-export default Main;
+export default ManPage;

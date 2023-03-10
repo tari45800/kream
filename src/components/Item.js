@@ -3,30 +3,30 @@ import styled from 'styled-components';
 
 
 const ListDiv = styled.div`
-  margin-top: 30px;
+  margin: 16px 0;
 
   & img{	
-    width: 440px;
+    width: 295px;
     display: block;
     object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 15px;
+    border-radius: 10px;
+    margin-bottom: 6px;
   }
 
   & .content {
 
     & > span {
       display: block;
-      margin-top: 16px;
+      margin-top: 10px;
     }
 
     & span {
-      font-size: 22px;
+      font-size: 14px;
     }
 
     & div span {
       font-weight: bold;
-      border-bottom: 2px solid black;
+      border-bottom: 1px solid black;
     }
 
     & span:nth-of-type(1) {
@@ -34,13 +34,14 @@ const ListDiv = styled.div`
     }
 
     & span:nth-of-type(2) {
+      margin-top: 13px;
       font-weight: bold;
-      font-size: 23px;
+      font-size: 15px;
     }
 
     & span:nth-of-type(3) {
       margin-top: 0;
-      font-size: 16px;
+      font-size: 11px;
       color: rgb(150, 150, 150);
     }
 

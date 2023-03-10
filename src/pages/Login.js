@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import Banner from '../components/Banner';
-import Kategorie from '../components/kategorie';
-import List from '../components/List';
+import GlobalStyle from '../components/GlobalStyles';
+import Header from '../components/Header';
+import LoginForm from '../components/LoginForm';
 import Footer from '../components/Footer';
 
 
@@ -13,15 +12,14 @@ const MainDiv = styled.div`
   flex-direction: column;
   background-color: #fff
 `
-function Main() {
+function Login() {
   return(
     <MainDiv>
-      <Banner></Banner>
-      <Kategorie></Kategorie>
-      <List></List>
+      <GlobalStyle></GlobalStyle>
+      <LoginForm></LoginForm>
       <Footer></Footer>
     </MainDiv>
   )
 }
 
-export default Main;
+export default Login;

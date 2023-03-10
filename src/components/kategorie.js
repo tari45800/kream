@@ -2,30 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 
 const KategorieDiv = styled.div`
-  width: 1800px;
+  width: 1200px;
   display: flex;
   justify-content: space-between;
   flex-wrap : wrap;
-  padding: 60px 0;
-  border-bottom: 2px solid rgb(230, 230, 230);
+  padding: 40px 0;
+  border-bottom: 1px solid rgb(230, 230, 230);
 
   & .kategorieImg{
 
-
     & img {
-      width: 350px;
+      width: 234px;
+      height: 100px;
       display: block;
       object-fit: cover;
-      border-radius: 15px;
+      border-radius: 10px;
     }
 
     & span {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 55px;
-      font-size: 22px;
-      margin-bottom: 10px;
+      height: 35px;
+      font-size: 15px;
+      margin-bottom: 8px;
       cursor: pointer;
     }
 
@@ -36,6 +36,7 @@ const KategorieDiv = styled.div`
 
 function Kategorie() {
 
+  // 카테고리 배열
   const kategories = [
     {
       'img':'kategorie1',
@@ -82,8 +83,8 @@ function Kategorie() {
   return(
     <KategorieDiv>
       {kategories.map((el, idx) => {
-        return<div className='kategorieImg'>
-                  <img key={idx} src={`../images/kategories/${el.img}.jpg`}></img>
+        return<div key={idx} className='kategorieImg'>
+                  <img src={`../images/kategories/${el.img}.jpg`}></img>
                   <span>{el.imgName}</span>
               </div>
 
