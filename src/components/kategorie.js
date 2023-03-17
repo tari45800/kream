@@ -1,38 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
+import Hr from './Hr';
 
+const KategorieContainer = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 36px;
+
+  @media (max-width: 750px){
+    padding: 40px 11px;
+  }
+`
 const KategorieDiv = styled.div`
-  width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap : wrap;
-  padding: 40px 0;
-  border-bottom: 1px solid rgb(230, 230, 230);
+  width: 20%;
+  padding: 0 4px 20px 4px;
+  display: inline-block;
+  text-align: center;
 
-  & .kategorieImg{
-
-    & img {
-      width: 234px;
-      height: 100px;
-      display: block;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    & span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 35px;
-      font-size: 15px;
-      margin-bottom: 8px;
-      cursor: pointer;
-    }
-
+  img{
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
-`
+  span{
+    font-size: 0.9rem;
+    color: #505050;
+  }
 
+  @media (max-width: 750px){
+    img{
+      height: auto;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+    }
+  }
+`
 
 function Kategorie() {
 
@@ -81,15 +85,19 @@ function Kategorie() {
   ]
 
   return(
-    <KategorieDiv>
-      {kategories.map((el, idx) => {
-        return<div key={idx} className='kategorieImg'>
-                  <img src={`../images/kategories/${el.img}.jpg`}></img>
-                  <span>{el.imgName}</span>
-              </div>
+    <>
+      <KategorieContainer>
+        {kategories.map((el, idx) => {
+          return<KategorieDiv key={idx}>
+                    <img src={`../images/kategories/${el.img}.jpg`}></img>
+                    <span>{el.imgName}</span>
+                </KategorieDiv>
 
-        })}
-    </KategorieDiv>
+          })}
+          
+      </KategorieContainer>
+      <Hr></Hr>
+    </>
   )
 }
 

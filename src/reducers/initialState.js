@@ -3,203 +3,28 @@ export const initialState =
   'login': {
     'isLogin': false
   },
-  "items": [
-    {
-      "id": 1,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 2,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 3,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 4,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 5,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 6,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 7,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 8,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 9,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 10,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 11,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 12,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 13,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 14,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 15,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 16,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 17,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 18,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 19,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 20,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 21,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 22,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 23,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 24,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 25,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 26,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 27,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-    {
-      "id": 28,
-      "brand": "Nike",
-      "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
-      "price": '1,940,000원',
-      "img": "../images/items/3.jpg",
-    },
-
-  ],
+  "shoes": [],
+  "outer": [],
 }
+
+for(let i = 1; i <= 32; i++){
+  initialState.shoes.push({
+    'id' : i,
+    "brand": "Nike",
+    "name": "Nike x Tiffany & Co. Air Force 1 Low SP 1837",
+    "price": `${Math.floor(Math.random()*(100000000-100000)+100000).toLocaleString()}원`,
+    "img": `../images/shoes/${i}.png`
+  })
+}
+
+for(let i = 1; i <= 32; i++){
+  initialState.outer.push({
+    'id' : i,
+    "brand": "Nike",
+    "name": "Nike x Stussy NRG Striped Wool Jacket Black (DR4023-010)",
+    "price": `${Math.floor(Math.random()*(100000000-100000)+100000).toLocaleString()}원`,
+    "img": `../images/outer/${i}.jpg`
+  })
+}
+
+console.log(initialState)

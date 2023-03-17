@@ -7,10 +7,7 @@ import Footer from '../components/Footer';
 
 
 const MainDiv = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #fff
+
 `
 function ManPage() {
   return(

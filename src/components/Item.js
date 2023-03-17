@@ -4,64 +4,58 @@ import styled from 'styled-components';
 
 const ListDiv = styled.div`
   margin: 16px 0;
+  width: 25%;
+  display: inline-block;
+  padding: 4px;
 
-  & img{	
-    width: 295px;
-    display: block;
+  img{	
+    width: 100%;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 6px;
+    background-color: #EBF0F4;
   }
 
-  & .content {
 
-    & > span {
-      display: block;
-      margin-top: 10px;
-    }
-
-    & span {
-      font-size: 14px;
-    }
-
-    & div span {
-      font-weight: bold;
-      border-bottom: 1px solid black;
-    }
-
-    & span:nth-of-type(1) {
-
-    }
-
-    & span:nth-of-type(2) {
-      margin-top: 13px;
-      font-weight: bold;
-      font-size: 15px;
-    }
-
-    & span:nth-of-type(3) {
-      margin-top: 0;
-      font-size: 11px;
-      color: rgb(150, 150, 150);
-    }
-
+  span{
+    display: block;
   }
+
+  .brand{
+    color: #303030;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .info{
+    font-size: 0.8rem;
+    margin: 8px 0 12px 0;
+  }
+
+  .price{
+    font-weight: bold;
+  }
+
+  .now{
+    font-size: 0.7rem;
+    color: #808080;
+  }
+ 
 `
 
 
-function Item({item, isCheck}) {
+function Item({item}) {
 
   return(
     <ListDiv>
       <div>
         <img src={item.img} alt={item.name}></img>
-        <div className='content'>
-          <div>
-            <span className='brand'>{item.brand}</span>
-          </div>
-          <span>{item.name}</span>
-          <span>{item.price}</span>
-          <span>즉시 구매가</span>
+        <div>
+          <span className='brand'>{item.brand}</span>
+          <span className='info'>{item.name}</span>
+          <span className='price'>{item.price}</span>
+          <span className='now'>즉시 구매가</span>
         </div>
       </div>
     </ListDiv>

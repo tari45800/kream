@@ -6,45 +6,27 @@ import { useState } from 'react';
 
 
 const ListDiv = styled.div`
-  height: 100%;
-  width: 1200px;
-  margin-top: 40px;
-  display: flex;
-  flex-wrap : wrap;
-  margin-bottom: 155px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px;
 
-  & > .orderDiv {
-    
-    & span {
+  .orderDiv{
+    span:nth-of-type(1) {
       display: block;
-    }
-
-    & span:nth-of-type(1) {
       font-weight: bold;
-      font-size: 17px;
+      font-size: 1rem;
     }
 
-    & span:nth-of-type(2) {
+    span:nth-of-type(2) {
       color: rgb(140, 140, 140);
-      font-size: 16px;
+      font-size: 1rem;
     }
 
   }
 
-  & > .itemsDiv{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  & .pagination{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  & button {
+  button {   
+    margin-top: 20px;
+    margin: 0 auto;
     margin-top: 20px;
     height: 40px;
     width: 100px;
@@ -54,14 +36,13 @@ const ListDiv = styled.div`
     display: ${props => props.props ? 'none' : 'block'};
   }
 
-
 `
 
 function List() {
 
   // 전역 상태 관리 state
   const state = useSelector(state => state.itemReducer);
-  const { items } = state;
+  const { shoes } = state;
 
   // 페이지에 보여줄 게시물을 관리하는 state
   const [ startPage, setPage ] = useState(4);
@@ -70,7 +51,7 @@ function List() {
   const [ none, setNone ] = useState(false);
 
   // 현재 페이지를 담고있는 객체
-  const currentPage = items.filter((el) => {
+  const currentPage = shoes.filter((el) => {
     return el.id <= startPage;
   })
 
@@ -78,7 +59,7 @@ function List() {
   const movePage = () => {
     
     // 만약 남은 게시물 수가 4개 이하라면 버튼 삭제
-    if(startPage >= items.length-4){
+    if(startPage >= shoes.length-4){
       setNone(true)
     }
 
@@ -97,7 +78,7 @@ function List() {
         {currentPage.map((item, idx) => <Item item={item} key={idx}></Item>)}
       </div>
       
-      <div className='pagination'>
+      <div>
         <button onClick={() => {movePage()}}>더보기</button>
       </div>
     </ListDiv>

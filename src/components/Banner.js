@@ -1,85 +1,121 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const BannerDiv = styled.div`
-  height: 480px;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
   position: relative;
+  width: 100vw;
+  overflow: hidden;//빠르게 움직일 때 삐져나옴 방지
 
-  & .bannersDiv {
-    position: absolute;
-    top:0;
-    left: -${props => props.BannerNum * 100}vw;
+  .bannersContainer {
     width: ${props => props.props.length}00vw;
-    display: flex;
+    position: relative;
+    height: 480px;
+    left: -${props => props.BannerNum * 100}vw;
     transition: 1s;
 
+  }
 
-    & .bannerDiv {
-      width: 100vw;
-      display: flex;
-      justify-content: center;
+  .bannerDiv{
+    display: inline-block;
+    width: 100vw;
+    height: 480px;
+    //임시배경
+    background-color: #FAEEED;
+
+    div{
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    & img{
+    img{
+      width: 100%;
       height: 480px;
       object-fit: cover;
     }
 
   }
 
-  & > img{	
-    display:block;
-    height: 100%;
-    object-fit: cover;
+  .BannerButton{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
   }
 
-  & > .BannerButton{	
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+  .buttonContainer{
+    width: 95%;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 480px;
+  }
 
+  .midBanner{
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
 
-    & .midBanner {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-
-      & img {
-        margin: 0 400px;
-        font-size: 50px;
-        opacity: 0.3;
-        cursor: pointer;
-      }
-
+    img{
+      opacity: 0.3;
+      cursor: pointer;
     }
 
-    & .bannerNav span:nth-of-type(${props => props.BannerNum+1}){
-      background-color: white;
-    }
-
-    & .bannerNav span {
+  }
+  .bottomBanner{
+    margin: 0 auto;
+    height: 35px;
+    
+    span{
       display: inline-block;
       width: 8px;
       height: 8px;
       border-radius: 50%;
       margin:6px;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0,0.2);
       cursor: pointer;
     }
 
+    span:nth-of-type(${props => props.BannerNum+1}){
+      background-color: white;
+    }
+  }
+
+  @media (max-width: 1070px){
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 7;
+
+    .buttonContainer{
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 7;
+    }
+
+    .bannerDiv img{
+      height: auto;
+      aspect-ratio: 16 / 7;
+
+    }
+  }
+
+  @media (max-width: 750px){
+    height: 480px;
+
+    .buttonContainer{
+      height: 480px;
+
+    }
+
+    .bannerDiv img{
+      height: 480px;
+    }
+
+    .midBanner{
+     display: none;
+    }
   }
 
 `
@@ -95,10 +131,10 @@ function Banner() {
   // 화살표 버튼 관리 함수
   const sideChange = (e)=>{
     if(currentBanner+e > banners.length-1){
-      changeBanner(1)
+      changeBanner(0)
       return
     }
-    if(currentBanner+e < 1){
+    if(currentBanner+e < 0){
       changeBanner(banners.length-1)
       return
     }
@@ -110,32 +146,32 @@ function Banner() {
     changeBanner(e)
   }
 
-  setInterval(()=>{
-    sideChange(1)
-  }, 5000)
-
   return(
-    <BannerDiv props={banners} BannerNum={currentBanner}>
-      <div className='bannersDiv'>
+    <BannerDiv className='bannerDiv' props={banners} BannerNum={currentBanner}>
+      <div className='bannersContainer'>
         {banners.map((el, idx) => {
           return <div className='bannerDiv' key={idx}>
-                    <img src={`../images/banners/banner (${el}).png`}></img>
+                    <div>
+                      <img src={`../images/banners/banner (${el}).png`}></img>
+                    </div>
                  </div>
         })}
       </div>
-
       <div className='BannerButton'>
-        <div></div>
-        <div className='midBanner'>
-          <img src='../images/banners/icons8-less-than-50.png' onClick={()=>{sideChange(-1)}}></img>
-          <img src='../images/banners/icons8-more-than-50.png' onClick={()=>{sideChange(1)}}></img>
-        </div>
-        <div className='bannerNav'>
-        {banners.map((el, idx) => {
-          return <span key={idx} name='bannerNav' onClick={()=>{navChange(el)}}></span>
-        })}
+        <div className='buttonContainer'>
+          <div className='topBanner'></div>
+          <div className='midBanner'>
+            <img src='../images/banners/icons8-less-than-50.png' onClick={()=>{sideChange(-1)}}></img>
+            <img src='../images/banners/icons8-more-than-50.png' onClick={()=>{sideChange(1)}}></img>
+          </div>
+          <div className='bottomBanner'>
+          {banners.map((el, idx) => {
+            return <span key={idx} name='bannerNav' onClick={()=>{navChange(el)}}></span>
+          })}
+          </div>
         </div>
       </div>
+
     </BannerDiv>
   )
 }

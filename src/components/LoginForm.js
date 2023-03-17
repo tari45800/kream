@@ -159,6 +159,12 @@ const LoginFormDiv = styled.div`
     }
   }
 
+  @media (max-width: 750px){
+    input{
+      width:100%;
+    }
+  }
+
 `
 
 function LoginForm() {

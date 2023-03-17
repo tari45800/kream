@@ -6,28 +6,20 @@ import { useState } from 'react';
 
 
 const ManListDiv = styled.div`
-  height: 100%;
-  width: 1200px;
-  margin-top: 40px;
-  display: flex;
-  flex-wrap : wrap;
-  margin-bottom: 155px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px;
 
-
-  & > .orderDiv {
-    
-    & span {
+  .orderDiv{
+    span:nth-of-type(1) {
       display: block;
-    }
-
-    & span:nth-of-type(1) {
       font-weight: bold;
-      font-size: 17px;
+      font-size: 1rem;
     }
 
-    & span:nth-of-type(2) {
+    span:nth-of-type(2) {
       color: rgb(140, 140, 140);
-      font-size: 16px;
+      font-size: 1rem;
     }
 
   }
@@ -76,22 +68,26 @@ function ManList() {
 
   // 전역 상태 관리 state
   const state = useSelector(state => state.itemReducer);
-  const { items, cartItems } = state;
+  const { outer } = state;
+
 
   // 페이지에 보여줄 게시물을 관리하는 state
   const [ startPage, setPage ] = useState(12);
 
+
   // 페이지 번호를 관리하는 state
   const [ PageNum, setPageNum ] = useState(1);
 
+
   // 현재 페이지를 담고있는 객체
-  const currentPage = items.filter((el) => {
+  const currentPage = outer.filter((el) => {
     return el.id >= startPage-11 && el.id <= startPage;
   })
 
+
   // 페이지네이션 계산 함수
   const pagination = () => {
-    const pageNum = Math.ceil(items.length / 12)
+    const pageNum = Math.ceil(outer.length / 12)
     const pageNums = []
     for(let i = 1; i <= pageNum; i++){
       pageNums.push(<span key={i} className='pageNum' onClick={() => {movePage(i)}}>{i}</span>)
@@ -99,11 +95,13 @@ function ManList() {
     return pageNums;
   }
 
+
   // 페이지 이동 함수
   const movePage = (e) => {
     setPageNum(e)
     setPage(e * 12);
   }
+
 
   return(
     <ManListDiv props={PageNum}>

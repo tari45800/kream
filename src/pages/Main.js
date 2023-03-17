@@ -5,13 +5,11 @@ import Banner from '../components/Banner';
 import Kategorie from '../components/kategorie';
 import List from '../components/List';
 import Footer from '../components/Footer';
+import Hr from '../components/Hr';
 
 
 const MainDiv = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #fff
+
 `
 function Main() {
   return(
