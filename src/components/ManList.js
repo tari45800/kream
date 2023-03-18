@@ -61,7 +61,10 @@ const ManListDiv = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
   }
-
+  
+  @media (max-width: 940px){
+    padding: 40px 11px;
+  }
 `
 
 function ManList() {

@@ -3,12 +3,18 @@ import styled from 'styled-components';
 import Item from './Item';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 
 const ListDiv = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding: 40px;
+
+  .scroll-box::-webkit-scrollbar {
+    display:none; 
+  }
+
 
   .orderDiv{
     span:nth-of-type(1) {
@@ -35,10 +41,26 @@ const ListDiv = styled.div`
     background-color: white;
     display: ${props => props.props ? 'none' : 'block'};
   }
+  
+  @media (max-width: 940px){
+    padding: 40px 11px;
+  }
 
+  @media (max-width: 750px){
+    max-width: 750px;
+    overflow: scroll;
+    
+    .listContainer{
+      width: ${props => props.width * 210}px;
+    }
+
+    button {
+      display: none;
+    }
+  }
 `
 
-function List() {
+function List() {  
 
   // 전역 상태 관리 state
   const state = useSelector(state => state.itemReducer);
@@ -67,19 +89,26 @@ function List() {
     setPage(startPage+4)
   }
 
-  return(
-    <ListDiv props={none}>
-      <div className='orderDiv'>
-        <span className=''>Just Dropped</span>
-        <span className=''>발매 상품</span>
-      </div>
+  const mediaPage = useMediaQuery ({
+    query: "(max-width:750px)"
+  }) ? shoes : currentPage;
 
-      <div className='itemsDiv'>
-        {currentPage.map((item, idx) => <Item item={item} key={idx}></Item>)}
-      </div>
-      
-      <div>
-        <button onClick={() => {movePage()}}>더보기</button>
+  console.log(shoes.length)
+  return(
+    <ListDiv props={none} width={shoes.length}>
+      <div className='listContainer'>
+        <div className='orderDiv'>
+          <span className=''>Just Dropped</span>
+          <span className=''>발매 상품</span>
+        </div>
+
+        <div className='itemsDiv'>
+          {mediaPage.map((item, idx) => <Item item={item} key={idx}></Item>)}
+        </div>
+        
+        <div>
+          <button onClick={() => {movePage()}}>더보기</button>
+        </div>
       </div>
     </ListDiv>
   )

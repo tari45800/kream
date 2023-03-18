@@ -41,6 +41,10 @@ const ListDiv = styled.div`
     font-size: 0.7rem;
     color: #808080;
   }
+
+  @media (max-width: 750px){
+    width: 210px;
+  }
  
 `
 

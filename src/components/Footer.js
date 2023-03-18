@@ -8,42 +8,45 @@ const FooterDiv = styled.div`
   display: flex;
   justify-content: center;
 
-  & span{
-    font-size: 14px;
+  span{
+    font-size: 0.9rem;
     color: rgb(150, 150, 150);
     margin-bottom: 14px;
   }
 
-  & div > span:nth-of-type(1){
-    font-size: 16px;
+  div > span:nth-of-type(1){
+    font-size: 1rem;
     color: black;
     margin-bottom: 18px;
     font-weight: bold;
   }
 
-  & .mainFooter{
+  .mainFooter{
     display: flex;
     flex-direction: column;
-    width: 1200px;
+    max-width: 1200px;
   }
 
-  & .topFooter{
-    display: flex;
-    justify-content: space-between;
+  .topFooter{
     margin-bottom: 42px;
-
-    & .topLeftFooter div{
+    
+    .topLeftFooter{
       display: inline-block;
-      width: 240px;
+      width: 60%;
+    }
+    .topLeftFooter div{
+      display: inline-block;
+      width: 50%;
     }
 
-    & .topLeftFooter span{
+    .topLeftFooter span{
       display: block;
     }
 
-    & .topRightFooter{
+    .topRightFooter{
       display: inline-block;
-      width: 270px;
+      width: 40%;
+      vertical-align: top;
     }
 
     & .topRightFooter span:nth-of-type(1){
@@ -53,8 +56,7 @@ const FooterDiv = styled.div`
 
     & .topRightFooter span{
       display: block;
-      font-size: 13px;
-      margin: 2px;
+      font-size: 0.8rem;
     }
 
     & button {
@@ -97,11 +99,13 @@ const FooterDiv = styled.div`
     }
 
     & span:nth-of-type(6){
-      width: 600px;
+      max-width: 600px;
     }
   }
 
-
+  @media (max-width: 750px){
+    padding: 50px 15px;
+  }
 `
 
 function Footer() {

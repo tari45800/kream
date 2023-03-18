@@ -105,7 +105,9 @@ const HeaderDiv = styled.div`
   }
 
   @media (max-width: 750px){
-
+    .midNav .leftNav span{
+      font-size: 1.2rem;
+    }
   }
 
 `

@@ -7,7 +7,7 @@ const KategorieContainer = styled.div`
   margin: 0 auto;
   padding: 40px 36px;
 
-  @media (max-width: 750px){
+  @media (max-width: 940px){
     padding: 40px 11px;
   }
 `
