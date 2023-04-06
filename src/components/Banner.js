@@ -12,7 +12,7 @@ const BannerDiv = styled.div`
     height: 480px;
     left: -${props => props.BannerNum * 100}vw;
     transition: 1s;
-
+    
   }
 
   .bannerDiv{
