@@ -88,7 +88,6 @@ const HeaderDiv = styled.div`
       border-bottom: 2px solid black;
     }
   }
-
    
   @media (max-width: 940px){
     height: 95px;
