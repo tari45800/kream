@@ -20,6 +20,7 @@ const HeaderDiv = styled.div`
     color: black;
   }
 
+  
   .headerContainer{
     position: fixed; 
     width: 100%;
