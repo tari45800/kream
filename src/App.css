@@ -1,4 +1,8 @@
 .test{
+border: 2px solid black;
+
+background-color: rgb(190, 190, 255);
+
   justify-content: flex-start;
   word-spacing: 10px;
   overflow: hidden;

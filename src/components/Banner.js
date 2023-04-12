@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const BannerDiv = styled.div`
+
   position: relative;
   width: 100vw;
   overflow: hidden;//빠르게 움직일 때 삐져나옴 방지
@@ -19,7 +20,7 @@ const BannerDiv = styled.div`
     display: inline-block;
     width: 100vw;
     height: 480px;
-    //임시배경
+    //임시배경 
     background-color: #FAEEED;
 
     div{
